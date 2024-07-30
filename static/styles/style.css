@@ -57,6 +57,7 @@ header{
     border: none;
     border:solid 1px #ccc;
     border-radius: 5px;
+    font-size:medium
 }
 
 /* Estilo de los botones */
@@ -132,7 +133,8 @@ header{
 .ui.segment {
     margin-bottom: 2em;
     padding: 2%;
-    background-color: #e2e2e2;
+    background-color: #eeeeee;
+    box-shadow: #999999 0px 0px 15px;
     border: 1px solid transparent;
     border-radius: 0.5em;
 }
