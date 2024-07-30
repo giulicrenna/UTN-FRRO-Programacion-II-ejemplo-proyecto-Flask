@@ -12,8 +12,21 @@ db: SQLAlchemy = SQLAlchemy(app)
 class Todo(db.Model):
     id: Any = db.Column(db.Integer, primary_key=True)
     task: Any = db.Column(db.String(1000), nullable=False)
+    detail: Any = db.Column(db.String(1000), nullable=False)
     complete: Any = db.Column(db.Boolean) 
     user_id: Any = db.Column(db.Integer)
+
+"""
+Esta funcion permite modificar el header
+del HTTP, con el objetivo de que no guarde caché
+"""    
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    
+    return response
 
 @app.route('/')
 def index():
@@ -23,11 +36,12 @@ def index():
 @app.route('/add', methods=["POST"])
 def add() -> Any | str:
     title: str = request.form.get("title")
+    detail: str = request.form.get("detail")
     
     if title == "":
         return redirect(url_for("index"))
 
-    newTask: Todo = Todo(task=title, complete=False)
+    newTask: Todo = Todo(task=title, detail=detail, complete=False)
     
     try:
         db.session.add(newTask)
@@ -59,18 +73,19 @@ def update(todo_id: int) -> Any | str:
     except:
         return "Hubo aun problema borrando su tarea."
 
-
 if __name__ == "__main__":
     db.create_all()
     
     port = int(os.environ.get('PORT', 5000))
     
-    app.run(host = '0.0.0.0', port = port)
+    app.run(host='0.0.0.0', 
+            port=port,
+            debug=True)
 
 
 
 
-
+ 
 
 
 

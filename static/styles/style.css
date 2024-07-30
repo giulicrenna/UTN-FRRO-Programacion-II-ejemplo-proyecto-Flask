@@ -1,0 +1,166 @@
+/* Estilos generales */
+body {
+    font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif; 
+    font-weight: normal;
+    background-color: #f9f9f9;
+}
+
+header{
+    display: flex;
+}
+
+.logo{
+    height: 100px;
+    width: 120px;   
+    background-color: transparent;
+}
+
+.ui.container {
+    margin-top: 50px;
+    margin-left: 15dvh;
+    margin-right: 15dvh;
+}
+
+/* Título principal */
+.ui.header {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+/* Formulario */
+.ui.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui.form .field {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui.form .field label {
+    font-weight: bold;
+    margin-right: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui.form .field input {
+    width: 90%;
+    max-width: 1600px; /* Ajusta este valor según tus necesidades */
+    height: 30px;
+    display: block;
+    border: none;
+    border:solid 1px #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo de los botones */
+.ui.button {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    border-radius: 0.25em;
+    transition: background-color 0.3s ease;
+}
+
+.ui.button:hover {
+    opacity: 0.9;
+}
+
+/* Colores de botones similares a Bootstrap */
+.ui.blue.button.add {
+    background-color: #007bff;
+    color: #fff;
+    margin-left: 1em;
+    margin-right: 1em;  
+    margin-bottom: 1em;
+    border: 0px solid transparent;
+}
+
+.ui.blue.button {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.ui.blue.button:hover {
+    background-color: #0056b3;
+}
+
+.ui.red.button {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.ui.red.button:hover {
+    background-color: #c82333;
+}
+
+.ui.green.button {
+    background-color: #28a745;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.ui.green.button:hover {
+    background-color: #218838;
+}
+
+.ui.gray.label {
+    background-color: #6c757d;
+    padding: 0.5em;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0.25em;
+}
+
+.ui.green.label {
+    background-color: #27aa3d;
+    padding: 0.5em;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 0.25em;
+}
+
+/* Segmentos de tareas */
+.ui.segment {
+    margin-bottom: 2em;
+    padding: 2%;
+    background-color: #e2e2e2;
+    border: 1px solid transparent;
+    border-radius: 0.5em;
+}
+
+.ui.segment .ui.header {
+    font-size: 1.2em;
+}
+
+.ui.big.header {
+    margin-top: 1%;
+    font-size: 1.2em;
+}
+
+.ui.segment .ui.label {
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+/* Botones de acciones */
+.ui.segment .ui.button {
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+/* Divisor */
+hr {
+    border: 0;
+    height: 1px;
+    background: #acacac;
+    margin: 2em 0;
+}
