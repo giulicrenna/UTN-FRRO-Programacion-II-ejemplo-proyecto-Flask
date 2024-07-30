@@ -3,8 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from typing import Any
 import os
 
+db_path: str = 'sqlite:///' + os.path.abspath(os.path.dirname(__file__)) + '/db/db.sqlite'
+
 app: Flask = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db: SQLAlchemy = SQLAlchemy(app)
@@ -74,13 +76,14 @@ def update(todo_id: int) -> Any | str:
         return "Hubo aun problema borrando su tarea."
 
 if __name__ == "__main__":
-    db.create_all()
-    
-    port = int(os.environ.get('PORT', 5000))
-    
-    app.run(host='0.0.0.0', 
-            port=port,
-            debug=True)
+    with app.app_context():
+        db.create_all()
+        
+        port = int(os.environ.get('PORT', 5000))
+        
+        app.run(host='0.0.0.0', 
+                port=port,
+                debug=True)
 
 
 
